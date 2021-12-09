@@ -54,7 +54,7 @@
         android:text="Confira o resumo da compra:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/resumoCompraRealizada"/>
+        app:layout_constraintTop_toBottomOf="@id/resumoCompraView"/>
 
     <ImageView
         android:id="@+id/resumoCompraImagemPacote"
