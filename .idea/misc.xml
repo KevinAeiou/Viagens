@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/AluraViagens/app/src/main/res/drawable/bota_redondo_laranja.xml" value="0.23692307692307693" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/AluraViagens/app/src/main/res/drawable/botaoRedondoLaranja.xml" value="0.23692307692307693" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/AluraViagens/app/src/main/res/drawable/botao_redondo_laranja.xml" value="0.240625" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/AluraViagens/app/src/main/res/layout/activity_lista_pacotes.xml" value="0.1" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/AluraViagens/app/src/main/res/layout/activity_pagamento.xml" value="0.1" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/AluraViagens/app/src/main/res/layout/activity_resumo_compra.xml" value="0.1" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/AluraViagens/app/src/main/res/layout/activity_resumo_pacote.xml" value="0.16585365853658537" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/AluraViagens/app/src/main/res/layout/item_pacote.xml" value="0.1" />
       </map>
     </option>

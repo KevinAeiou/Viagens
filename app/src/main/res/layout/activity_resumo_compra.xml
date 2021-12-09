@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.ResumoCompraActivity">
+
+    <ImageView
+        android:id="@+id/resumoCompraView"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:src="@android:color/holo_orange_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/resumoCompraParabens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Parabéns!"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/resumoCompraView"
+        app:layout_constraintEnd_toEndOf="@id/resumoCompraView"
+        app:layout_constraintStart_toStartOf="@id/resumoCompraView"
+        app:layout_constraintTop_toTopOf="@id/resumoCompraView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/resumoCompraRealizada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Compra realizada com sucesso :)"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/resumoCompraParabens"
+        app:layout_constraintStart_toStartOf="@id/resumoCompraParabens"
+        app:layout_constraintTop_toBottomOf="@id/resumoCompraParabens" />
+
+    <TextView
+        android:id="@+id/resumoCompraConfiraResumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Confira o resumo da compra:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resumoCompraRealizada"/>
+
+    <ImageView
+        android:id="@+id/resumoCompraImagemPacote"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sao_paulo_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resumoCompraConfiraResumo"/>
+
+    <TextView
+        android:id="@+id/resumoCompraLocalPacote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        tools:text="São Paulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resumoCompraImagemPacote"/>
+
+    <TextView
+        android:id="@+id/resumoCompraDataViajem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        tools:text="08/12 - 10/12 de 2017"
+        app:layout_constraintStart_toStartOf="@id/resumoCompraLocalPacote"
+        app:layout_constraintTop_toBottomOf="@id/resumoCompraLocalPacote"/>
+
+    <TextView
+        android:id="@+id/resumoCompraPrecoPacote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="R$ 243,99"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/resumoCompraDataViajem"
+        app:layout_constraintTop_toBottomOf="@id/resumoCompraDataViajem"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,13 @@
     <string name="banner_inicial_dos_pacotes">Banner inicial dos pacotes</string>
     <string name="especiais">Especiais</string>
     <string name="txt_pais">Brasil</string>
+    <string name="mascara_nome_cartao">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\u0020</string>
+    <string name="orientacao_pagamento">Digite as informações do cartão de crédito que você deseja usar para o pagamento</string>
+    <string name="valor_da_compra">Valor da compra:</string>
+    <string name="numero_do_cartao">Número do cartão</string>
+    <string name="mes">MM</string>
+    <string name="ano">AA</string>
+    <string name="cvc_pagamento">CVC</string>
+    <string name="nome_no_cartao">Nome no cartão</string>
+    <string name="finalizar_compra">Finalizar compra</string>
 </resources>
