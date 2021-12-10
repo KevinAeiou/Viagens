@@ -12,8 +12,6 @@ import com.kevin.aluraviagens.R;
 import com.kevin.aluraviagens.model.Pacote;
 import com.kevin.aluraviagens.util.MoedaUtil;
 
-import java.math.BigDecimal;
-
 public class PagamentoActivity extends AppCompatActivity {
 
     public static final String TITULO_APPBAR = "Pagamento";
@@ -25,20 +23,34 @@ public class PagamentoActivity extends AppCompatActivity {
 
         setTitle(TITULO_APPBAR);
 
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2
-                , new BigDecimal("243.99"));
+        carregaPacoteRecebido();
+    }
 
+    private void carregaPacoteRecebido() {
+        Intent intent = getIntent();
+        if (intent.hasExtra("pacote")){
+            Pacote pacote = (Pacote) intent.getSerializableExtra("pacote");
+            mostraPreco(pacote);
+            configuraBotao(pacote);
+        }
+    }
+
+    private void configuraBotao(Pacote pacote) {
         Button botaoFinalizarPagamento = findViewById(R.id.pagamentoBotaoFinalizar);
         botaoFinalizarPagamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PagamentoActivity.this, ResumoCompraActivity.class);
-                startActivity(intent);
+                vaiParaResumoCompra(pacote);
             }
         });
-
-        mostraPreco(pacoteSaoPaulo);
     }
+
+    private void vaiParaResumoCompra(Pacote pacote) {
+        Intent intent = new Intent(PagamentoActivity.this, ResumoCompraActivity.class);
+        intent.putExtra("pacote", pacote);
+        startActivity(intent);
+    }
+
     private void mostraPreco(Pacote pacote) {
         TextView preco = findViewById(R.id.pagamentoValor);
         String moedaBrasileira = MoedaUtil

@@ -1,6 +1,7 @@
 package com.kevin.aluraviagens.ui.activity;
 
-import androidx.annotation.NonNull;
+import static com.kevin.aluraviagens.ui.activity.PacoteActivitiesConstantes.CHAVE_PACOTE;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,10 +19,6 @@ import com.kevin.aluraviagens.util.DiasUtil;
 import com.kevin.aluraviagens.util.MoedaUtil;
 import com.kevin.aluraviagens.util.ResourcesUtil;
 
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 public class ResumoPacoteActivity extends AppCompatActivity {
 
     public static final String RESUMO_APPBAR = "Resumo do pacote";
@@ -32,23 +29,40 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resumo_pacote);
 
         setTitle(RESUMO_APPBAR);
+        carregaPacoteInserido();
+    }
 
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2
-                , new BigDecimal("243.99"));
+    private void carregaPacoteInserido() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(CHAVE_PACOTE)){
+            final Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_PACOTE);
+            inicializaCampos(pacote);
+            configuraBotao(pacote);
+        }
+    }
 
-        mostraLocal(pacoteSaoPaulo);
-        mostraImagem(pacoteSaoPaulo);
-        mostraDias(pacoteSaoPaulo);
-        mostraPreco(pacoteSaoPaulo);
-        mostraData(pacoteSaoPaulo);
+    private void configuraBotao(Pacote pacote) {
         Button botaoPagamento = findViewById(R.id.botaoRealizarPagamento);
         botaoPagamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ResumoPacoteActivity.this, PagamentoActivity.class);
-                startActivity(intent);
+                vaiParaPagamento(pacote);
             }
         });
+    }
+
+    private void vaiParaPagamento(Pacote pacote) {
+        Intent intent = new Intent(ResumoPacoteActivity.this, PagamentoActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacote);
+        startActivity(intent);
+    }
+
+    private void inicializaCampos(Pacote pacote) {
+        mostraLocal(pacote);
+        mostraImagem(pacote);
+        mostraDias(pacote);
+        mostraPreco(pacote);
+        mostraData(pacote);
     }
 
     private void mostraData(Pacote pacote) {

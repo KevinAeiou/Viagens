@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.kevin.aluraviagens.R;
@@ -16,6 +18,7 @@ import java.util.List;
 public class ListaPacotesActivity extends AppCompatActivity {
 
     public static final String TITULO_APPBAR = "Pacotes";
+    public static final String CHAVE_PACOTE = "pacote";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +27,25 @@ public class ListaPacotesActivity extends AppCompatActivity {
 
         setTitle(TITULO_APPBAR);
         configuraLista();
-
-        Intent intent = new Intent(this, ResumoPacoteActivity.class);
-        startActivity(intent);
     }
 
     private void configuraLista() {
         ListView listaPacotes = findViewById(R.id.listaPacoteListView);
         List<Pacote> pacotes = new PacoteDAO().lista();
         listaPacotes.setAdapter(new ListaPacotesAdapter(pacotes, this));
+        listaPacotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Pacote pacoteClicado = pacotes.get(position);
+                vaParaResumoPacote(pacoteClicado);
+            }
+        });
+    }
+
+    private void vaParaResumoPacote(Pacote pacoteClicado) {
+        Intent intent = new Intent(ListaPacotesActivity.this,
+                ResumoPacoteActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacoteClicado);
+        startActivity(intent);
     }
 }
